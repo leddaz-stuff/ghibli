@@ -66,7 +66,7 @@ if [ "$FLAG_REGEN_DEFCONFIG" = 'y' ]; then
 	exit 1
 fi
 
-mpwd -p $OUT_DIR
+mkdir -p $OUT_DIR
 
 if [ ! -d "${pwd}/gcc64" ]; then
         curl -sL https://github.com/cyberknight777/gcc-arm64/archive/refs/heads/master.tar.gz | tar -xzf -
