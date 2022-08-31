@@ -80,8 +80,8 @@ if [ ! -d "${KDIR}/gcc64" ]; then
         mv "${KDIR}"/gcc-arm-master "${KDIR}"/gcc32
     fi
 
-    KBUILD_COMPILER_STRING=$("${KDIR}"/gcc64/bin/aarch64-elf-gcc --version | head -n 1)
-    export KBUILD_COMPILER_STRING
+    #KBUILD_COMPILER_STRING=$("${KDIR}"/gcc64/bin/aarch64-elf-gcc --version | head -n 1)
+    #export KBUILD_COMPILER_STRING
     export PATH="${KDIR}"/gcc32/bin:"${KDIR}"/gcc64/bin:/usr/bin/:${PATH}
     MAKE+=(
         ARCH=arm64
