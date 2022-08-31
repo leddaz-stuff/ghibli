@@ -1,0 +1,37 @@
+make[1]: Entering directory '/home/leddaz/ghibli/out'
+WARNING: Disabling clang-specific options with gcc
+  GEN     ./Makefile
+scripts/kconfig/conf  --olddefconfig Kconfig
+#
+# configuration written to .config
+#
+  GEN     ./Makefile
+scripts/kconfig/conf  --silentoldconfig Kconfig
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  UPD     include/generated/uapi/linux/version.h
+  WRAP    arch/arm64/include/generated/uapi/asm/ioctl.h
+  WRAP    arch/arm64/include/generated/uapi/asm/errno.h
+  WRAP    arch/arm64/include/generated/uapi/asm/ioctls.h
+  UPD     include/config/kernel.release
+  WRAP    arch/arm64/include/generated/uapi/asm/ipcbuf.h
+  WRAP    arch/arm64/include/generated/uapi/asm/kvm_para.h
+  WRAP    arch/arm64/include/generated/uapi/asm/mman.h
+  WRAP    arch/arm64/include/generated/uapi/asm/msgbuf.h
+  WRAP    arch/arm64/include/generated/uapi/asm/poll.h
+make[1]: *** No rule to make target 'dtbo.img'.  Stop.
+make[1]: *** Waiting for unfinished jobs....
+  WRAP    arch/arm64/include/generated/uapi/asm/sembuf.h
+  WRAP    arch/arm64/include/generated/uapi/asm/resource.h
+  WRAP    arch/arm64/include/generated/uapi/asm/shmbuf.h
+  WRAP    arch/arm64/include/generated/uapi/asm/socket.h
+  WRAP    arch/arm64/include/generated/uapi/asm/sockios.h
+  WRAP    arch/arm64/include/generated/uapi/asm/swab.h
+  WRAP    arch/arm64/include/generated/uapi/asm/termbits.h
+  WRAP    arch/arm64/include/generated/uapi/asm/termios.h
+  WRAP    arch/arm64/include/generated/uapi/asm/types.h
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/bin2c
+make[1]: Leaving directory '/home/leddaz/ghibli/out'
+make: *** [Makefile:146: sub-make] Error 2
