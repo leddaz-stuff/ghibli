@@ -103,6 +103,7 @@ if [ ! -d "${KDIR}/gcc64" ]; then
     )
 
 echo -e "\nStarting compilation...\n"
+make O=$OUT_DIR ARCH=arm64 $DEFCONFIG
 make -j"$(nproc --all)" O=$OUT_DIR $MAKE Image dtb.img dtbo.img
 
 if [ -f "$OUT_DIR/arch/arm64/boot/Image" ] && [ -f "$OUT_DIR/arch/arm64/boot/dtbo.img" ]; then
