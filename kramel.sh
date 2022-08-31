@@ -104,7 +104,7 @@ if [ ! -d "${KDIR}/gcc64" ]; then
 
 echo -e "\nStarting compilation...\n"
 make O=$OUT_DIR ARCH=arm64 $DEFCONFIG
-make -j"$(nproc --all)" O=$OUT_DIR ARCH=arm64 O=out CROSS_COMPILE=aarch64-elf- CROSS_COMPILE_ARM32=arm-eabi- LD="${KDIR}"/gcc64/bin/aarch64-elf-ld.lld HOSTLD="${KDIR}"/gcc64/bin/aarch64-elf-ld.lld AR=llvm-ar NM=llvm-nm OBJDUMP=llvm-objdump OBJCOPY=llvm-objcopy OBJSIZE=llvm-objsize STRIP=llvm-strip HOSTAR=llvm-ar HOSTCC=gcc HOSTCXX=aarch64-elf-g++ CC=aarch64-elf-gcc Image dtbo.img
+make -j"$(nproc --all)" O=$OUT_DIR ARCH=arm64 O=out CROSS_COMPILE=aarch64-elf- CROSS_COMPILE_ARM32=arm-eabi- LD="${KDIR}"/gcc64/bin/aarch64-elf-ld.lld HOSTLD="${KDIR}"/gcc64/bin/aarch64-elf-ld.lld AR=llvm-ar NM=llvm-nm OBJDUMP=llvm-objdump OBJCOPY=llvm-objcopy OBJSIZE=llvm-objsize STRIP=llvm-strip HOSTAR=llvm-ar HOSTCC=gcc HOSTCXX=aarch64-elf-g++ CC=aarch64-elf-gcc Image
 
 if [ -f "$OUT_DIR/arch/arm64/boot/Image" ] && [ -f "$OUT_DIR/arch/arm64/boot/dtbo.img" ]; then
 	echo -e "\nKernel compiled succesfully! Zipping up...\n"
