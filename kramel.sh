@@ -67,27 +67,29 @@ if [ "$FLAG_REGEN_DEFCONFIG" = 'y' ]; then
 fi
 
 mkdir -p $OUT_DIR
+KDIR=$(pwd)
+export KDIR
 
-if [ ! -d "${pwd}/gcc64" ]; then
+if [ ! -d "${KDIR}/gcc64" ]; then
         curl -sL https://github.com/cyberknight777/gcc-arm64/archive/refs/heads/master.tar.gz | tar -xzf -
-        mv "${pwd}"/gcc-arm64-master "${pwd}"/gcc64
+        mv "${KDIR}"/gcc-arm64-master "${KDIR}"/gcc64
     fi
 
-    if [ ! -d "${pwd}/gcc32" ]; then
+    if [ ! -d "${KDIR}/gcc32" ]; then
 	curl -sL https://github.com/cyberknight777/gcc-arm/archive/refs/heads/master.tar.gz | tar -xzf -
-        mv "${pwd}"/gcc-arm-master "${pwd}"/gcc32
+        mv "${KDIR}"/gcc-arm-master "${KDIR}"/gcc32
     fi
 
-    KBUILD_COMPILER_STRING=$("${pwd}"/gcc64/bin/aarch64-elf-gcc --version | head -n 1)
+    KBUILD_COMPILER_STRING=$("${KDIR}"/gcc64/bin/aarch64-elf-gcc --version | head -n 1)
     export KBUILD_COMPILER_STRING
-    export PATH="${pwd}"/gcc32/bin:"${pwd}"/gcc64/bin:/usr/bin/:${PATH}
+    export PATH="${KDIR}"/gcc32/bin:"${KDIR}"/gcc64/bin:/usr/bin/:${PATH}
     MAKE+=(
         ARCH=arm64
         O=out
         CROSS_COMPILE=aarch64-elf-
         CROSS_COMPILE_ARM32=arm-eabi-
-        LD="${pwd}"/gcc64/bin/aarch64-elf-"${LINKER}"
-        HOSTLD="${pwd}"/gcc64/bin/aarch64-elf-"${LINKER}"
+        LD="${KDIR}"/gcc64/bin/aarch64-elf-ld.lld
+        HOSTLD="${pwd}"/gcc64/bin/aarch64-elf-ld.lld
         AR=llvm-ar
         NM=llvm-nm
         OBJDUMP=llvm-objdump
