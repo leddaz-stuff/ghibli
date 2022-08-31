@@ -133,3 +133,4 @@ Android.bp
 
 gcc32/
 gcc64/
+out/
